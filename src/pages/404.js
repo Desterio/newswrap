@@ -1,14 +1,17 @@
-import React from "react"
+import React from 'react'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Page from '../components/Page'
+import withRoot from '../utils/withRoot'
+import Typography from '@material-ui/core/Typography'
 
-const NotFoundPage = () => (
-  <Layout>
-    <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
-)
+const Component = () => {
+  return (
+    <Page title="Not Found">
+      <Typography component={`p`} variant={`h6`} style={{ textAlign: `center` }}>
+        Hey! You just hit a page that doesn't exist...
+      </Typography>
+    </Page>
+  );
+}
 
-export default NotFoundPage
+export default withRoot(Component)

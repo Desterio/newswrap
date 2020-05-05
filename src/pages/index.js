@@ -1,21 +1,27 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import withRoot from '../utils/withRoot'
+import withStyles from '@material-ui/styles/withStyles'
+import Page from '../components/Page'
+import Typography from '@material-ui/core/Typography'
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+const styles = () => ({
+  root: {
+    fontWeight: `bold`
+  }
+})
 
-export default IndexPage
+const Home = (props) => {
+  return (
+    <Page title={`NewsWrap`}>
+      <h1>Home</h1>
+    </Page>
+  )
+};
+
+Home.propTypes = {
+  classes: PropTypes.object.isRequired,
+}
+
+export default  withRoot(withStyles(styles)(Home));
