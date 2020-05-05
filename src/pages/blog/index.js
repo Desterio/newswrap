@@ -18,7 +18,7 @@ const BlogPage = (props) => {
 
 export const query = graphql`
     query {
-        posts: allContentfulBlogPost(limit: 5) {
+        posts: allContentfulBlogPost {
             edges {
                 node {
                     title
