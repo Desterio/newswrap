@@ -32,7 +32,7 @@ const path = require("path")
 //       return Promise.all(
 //         result.data[item].edges.map(({ node }) => {
 //           const component = fs.existsSync(`src/templates/${item}.js`)
-//             ? // Use specific template for item, e.g., blog.js, if it exists.
+//             ? // Use specific template for item, e.g., index.js, if it exists.
 //             path.resolve(`src/templates/${item}.js`)
 //             : // Or use general template.
 //             path.resolve(`src/templates/general.js`);

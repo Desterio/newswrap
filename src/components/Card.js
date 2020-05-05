@@ -15,7 +15,7 @@ const MyCard = ({children, classes, title, subheader, avatar, action, style = {}
   <Card style={style}>
     <CardHeader avatar={avatar ? avatar : null}
     subheader={subheader ? subheader : null}
-    title={title} />
+    title={title ? title : null} />
     <CardContent>{children}</CardContent>
     <CardActions className={classes.cardActions}>{action}</CardActions>
   </Card>

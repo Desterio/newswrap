@@ -5,7 +5,6 @@ import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
-import { withPrefix } from 'gatsby'
 import withStyles from '@material-ui/styles/withStyles'
 
 const styles = {
@@ -20,24 +19,24 @@ const List = (props) => {
   return (
     <Grid alignItems={`flex-start`} container direction={`row`} justify={`center`} spacing={8}>
       {
-        props.items.map((edge) => {
+        props.items.map(({ node }) => {
           const {
-            node: {
-              excerpt, frontmatter: {
-                path, title, image: {
-                  publicURL
-                }
+              title,
+              slug,
+              excerpt: {
+                excerpt
+              }, featuredImage: {
+                file: {url}
               }
-            }
-          } = edge
+          } = node;
 
           return (
-            <Grid item key={path} md={6} xs={12}>
+            <Grid item key={slug} md={6} xs={12}>
               <Card>
-                <CardMedia className={classes.cardMedia} image={withPrefix(publicURL)}/>
+                <CardMedia className={classes.cardMedia} image={url}/>
                 <CardContent>
                   <Typography component={`h2`} gutterBottom variant={`h5`}>
-                    <Link to={path}>{title}</Link>
+                    <Link to={slug}>{title}</Link>
                   </Typography>
                   <Typography component={`p`}>
                     {excerpt}
